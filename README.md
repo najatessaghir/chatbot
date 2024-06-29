@@ -1,38 +1,38 @@
-# AI chatbot
+# Chatbot AI
 
-This Django project allows you to use a local Ai model to process files and answer questions using ollama . 
-## Features
+Ce projet Django vous permet d'utiliser un modèle d'IA local pour traiter des fichiers et répondre à des questions en utilisant Ollama.
 
-- **Authentication:** User authentication and authorization to secure the application.
-- **Process PDF Files:**  process PDF files to extract information.
-- **Local AI Models:** Utilize local AI models for processing and answering questions.
-- **Chat Interface:** Interactive chat interface to communicate with the AI model.
+## Fonctionnalités
 
-## Prerequisites
+- **Authentification :** Authentification et autorisation des utilisateurs pour sécuriser l'application.
+- **Traitement des fichiers PDF :** Traitez les fichiers PDF pour extraire des informations.
+- **Modèles d'IA locaux :** Utilisez des modèles d'IA locaux pour traiter et répondre aux questions.
+- **Interface de chat :** Interface de chat interactive pour communiquer avec le modèle d'IA.
+
+## Prérequis
 
 - Python 3.x
-- Required Python packages (`django`, `langchain`, `chromadb` , `python-dotenv`,`PyPDF`)
+- Packages Python requis (`django`, `langchain`, `chromadb`, `python-dotenv`, `PyPDF`)
 
 ## Installation
 
-1. Clone the repository:
+1. Clonez le dépôt :
    ```bash
    git clone https://github.com/najatessaghir/chatbot.git
    cd chatbot
-2. Install the requirements
+2. Installez les exigences :
    ```bash
    pip install -r -U requirements.txt
-3. load static files
+3. Chargez les fichiers statiques :
    ```bash
    python manage.py makemigrations 
    python manage.py migrate
-4. run the server
+4. Lancez le serveur :
    ```bash
    python manage.py runserver
 
-## Usage
-
-    1. Access the application at http://127.0.0.1:8000 in your web browser.
-    2. Register or log in to your account.
-    3. Upload PDF files to process and interact with the AI model through the chat interface.
+## Utilisation
+    1. Accédez à l'application à l'adresse http://127.0.0.1:8000 dans votre navigateur web.
+    2. Inscrivez-vous ou connectez-vous à votre compte.
+    3. Téléchargez des fichiers PDF pour les traiter et interagissez avec le modèle d'IA via l'interface de chat.
    
