@@ -21,7 +21,7 @@ This Django project allows you to use a local Ai model to process files and answ
    cd chatbot
 2. Install the requirements
    ```bash
-   pip install -r requirements.txt
+   pip install -r -U requirements.txt
 3. load static files
    ```bash
    python manage.py makemigrations 
