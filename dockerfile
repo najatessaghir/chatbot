@@ -23,10 +23,11 @@ RUN pip install --no-cache-dir -U -r requirements.txt
 
 # Install ollama 
 RUN curl -fsSL https://ollama.com/install.sh | sh
+# Start the Ollama service in the background
+RUN nohup ollama &
 
-RUN systemctl start ollama.service
-
-
+# Wait for Ollama service to be ready
+RUN sleep 5
 # Download the model to the local (adjust as per your requirements)
 RUN ollama pull mistral
 
