@@ -1,8 +1,8 @@
 pip install  -U -r requirements.txt
 
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull mistral 
-ollama serve 
+sudo curl -fsSL https://ollama.com/install.sh | sh
+sudo ollama pull mistral 
+sudo ollama serve 
 
 python manage.py migrate 
 
