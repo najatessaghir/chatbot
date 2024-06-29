@@ -27,7 +27,14 @@ Ce projet Django vous permet d'utiliser un modèle d'IA local pour traiter des f
    ```bash
    python manage.py makemigrations 
    python manage.py migrate
-4. Lancez le serveur :
+4. installer ollama de https://ollama.com/download :
+5. telecharger le model mistral :
+   ```bash
+   ollama pull mistral
+6. lancer le model :
+   ```bash
+   ollama serve
+7. Lancez le serveur :
    ```bash
    python manage.py runserver
 
