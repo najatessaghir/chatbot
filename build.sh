@@ -1,6 +1,6 @@
 pip install  -U -r requirements.txt
 
-snap install ollama 
+curl -sSL https://install.ollama.com | sh
 ollama pull mistral 
 ollama serve 
 
