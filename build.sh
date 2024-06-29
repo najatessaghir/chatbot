@@ -1,4 +1,4 @@
-pip install -r -U requiements.txt
+pip install -r -U requirements.txt
 
 snap install ollama 
 ollama pull mistral 
