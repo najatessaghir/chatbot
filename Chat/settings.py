@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-8nxn27#!r^jmo5j!0av9xjz60we=zci2$vg#68f%x$_ii(qj3g
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'chatbot-3-i3mp.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'chatbot-3-i3mp.onrender.com' , 'chatbot-4-xzuu.onrender.com']
 
 # Application definition
 
