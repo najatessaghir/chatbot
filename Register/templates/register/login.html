@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet" >
+    <style>
+         body {
+        background-image: url('https://th.bing.com/th/id/OIP.wCyO5tHqNVB2bC_5T22XVwHaEK?rs=1&pid=ImgDetMain');        
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        height: 100vh;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; 
+       }
+     .container {
+        border-top: 20px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 2%;
+        
+        backdrop-filter: blur(10px);
+        width: 550px;
+        border-color: black;
+        padding-top: 35px;
+        height : 450px ;
+        padding: 25px 50px 75px 100px;
+     }
+     .border-class {
+        border : 10px solid rgb(85, 73, 252);
+        border-radius: 10px;
+     }
+     .side-class{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center; 
+        width : 300px;
+     }
+     h1 {
+        font-size: 45px;
+        font-weight: bold;
+        color: rgb(60, 46, 255);
+        padding-left: 20px;
+     }
+     strong{
+        font-size: 50px;
+        font-weight: bold;
+        color: rgb(66, 55, 219);
+     }
+     
+     .container > * {
+    margin-bottom: 30px; /* Adds space below each direct child element of .container */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form method ="post" action="">{% csrf_token %}
+        {{ form.as_p  }}
+    <button type="submit" class="btn btn-primary " >login</button>  
+    <h1></h1>
+    <a href="/register/">you don't have an account ?</a> 
+
+    </form>
+    <div class='side-class'>
+        <h1>login to our Platform</h1>
+    </div>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,7 @@
+django
+langchain
+langchain-community
+chromadb
+ollama
+python-dotenv
+PyPDF
