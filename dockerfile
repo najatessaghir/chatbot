@@ -10,7 +10,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 
 # Install system dependencies including snapd
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y curl \
     build-essential \
     libpq-dev \
     snapd \
