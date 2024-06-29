@@ -1,8 +1,4 @@
-pip install  -U -r requirements.txt
+docker build -t Chat .
+docker run --name MyApp -t Chat
 
-sudo curl -fsSL https://ollama.com/install.sh | sh
-sudo ollama pull mistral 
-sudo ollama serve 
-
-python manage.py migrate 
 
