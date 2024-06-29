@@ -21,8 +21,12 @@ COPY requirements.txt /code/
 RUN pip install --upgrade pip setuptools
 RUN pip install --no-cache-dir -U -r requirements.txt
 
-# Install ollama using snap
+# Install ollama 
 RUN curl -fsSL https://ollama.com/install.sh | sh
+
+RUN systemctl start ollama.service
+
+
 # Download the model to the local (adjust as per your requirements)
 RUN ollama pull mistral
 
