@@ -30,4 +30,9 @@ This Django project allows you to use a local Ai model to process files and answ
    ```bash
    python manage.py runserver
 
+## Usage
+
+    1. Access the application at http://127.0.0.1:8000 in your web browser.
+    2. Register or log in to your account.
+    3. Upload PDF files to process and interact with the AI model through the chat interface.
    
