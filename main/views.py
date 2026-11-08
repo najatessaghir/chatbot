@@ -2,18 +2,18 @@ from django.shortcuts import render
 from django.http import  JsonResponse
 from django.contrib.auth.decorators import login_required
 from langchain_community.document_loaders import PyPDFDirectoryLoader
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.schema.document import Document
+from langchain_core.documents import Document
 from .get_embedding_function import get_embeddings
-from langchain.prompts import ChatPromptTemplate
-from langchain_community.llms.ollama import Ollama
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_community.llms import Ollama
 from .models import Chat , Exchange
 import os
 import shutil
 from django.conf import settings
 model = 'mistral'
-Model = settings.MODEL 
+Model = settings.LLM_MODEL
 # Create your views here.
 
 db_not_loaded = True
@@ -37,7 +37,6 @@ Answer the query based on the above context: {question}
 import argparse
 
 def initialise():
-    # Create (or update) the data store.
     documents = load_documents()
     chunks = split_documents(documents)
     add_to_chroma(chunks)
@@ -56,37 +55,36 @@ def split_documents(documents: list[Document]):
     return text_splitter.split_documents(documents)
 
 def add_to_chroma(chunks: list[Document]):
-    # Load the existing database.
+
     db = Chroma(
-        persist_directory=CHROMA_PATH, embedding_function=get_embeddings()
+        persist_directory=CHROMA_PATH, 
+        embedding_function=get_embeddings()
     )
 
-    # Calculate Page IDs.
     chunks_with_ids = calculate_chunk_ids(chunks)
 
-    # Add or Update the documents.
-    existing_items = db.get(include=[])  # IDs are always included by default
+    existing_items = db.get(include=[])  
     existing_ids = set(existing_items["ids"])
+
     print(f"Number of existing documents in DB: {len(existing_ids)}")
 
-    # Only add documents that don't exist in the DB.
     new_chunks = []
+    new_chunk_ids = []
+
     for chunk in chunks_with_ids:
         if chunk.metadata["id"] not in existing_ids:
             new_chunks.append(chunk)
+            new_chunk_ids.append(chunk.metadata["id"])
 
     if len(new_chunks):
         print(f"👉 Adding new documents: {len(new_chunks)}")
-        new_chunk_ids = [chunk.metadata["id"] for chunk in new_chunks]
+        
         db.add_documents(new_chunks, ids=new_chunk_ids)
-        db.persist()
     else:
         print("✅ No new documents to add")
 
 def calculate_chunk_ids(chunks):
 
-    # This will create IDs like "data/monopoly.pdf:6:2"
-    # Page Source : Page Number : Chunk Index
 
     last_page_id = None
     current_chunk_index = 0

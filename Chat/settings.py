@@ -20,7 +20,8 @@ load_dotenv()
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-MODEL = os.getenv('MODEL')
+LLM_MODEL = os.getenv("LLM_MODEL", "mistral")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-minilm")
 
 LOGIN_URL = 'login'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

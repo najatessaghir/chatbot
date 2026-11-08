@@ -1,9 +1,8 @@
-from langchain_community.embeddings import OllamaEmbeddings
+from langchain_ollama import OllamaEmbeddings
 from django.conf import settings
 
-Model = settings.MODEL 
 def get_embeddings():
     embeddings = OllamaEmbeddings(
-        model = Model
+        model = settings.EMBEDDING_MODEL
     )
     return embeddings
